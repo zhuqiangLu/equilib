@@ -193,8 +193,8 @@ def run(
 
     out = (
         out.type(src_dtype)
-        if src_dtype == torch.uint8
-        else torch.clip(out, 0.0, 1.0)
+        # if src_dtype == torch.uint8
+        # else torch.clip(out, 0.0, 1.0)
     )
 
     return out

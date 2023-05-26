@@ -193,7 +193,7 @@ def create_equi_grid(
         dtype=dtype,
         device=device,
     )
-    phi, theta = torch.meshgrid([phi, theta], indexing="ij")
+    phi, theta = torch.meshgrid([phi, theta])
 
     # Get face id to each pixel: 0F 1R 2B 3L 4U 5D
     tp = _equirect_facetype(h_out, w_out)
@@ -349,8 +349,8 @@ def run(
 
     out = (
         out.type(horizon_dtype)
-        if horizon_dtype == torch.uint8
-        else torch.clip(out, 0.0, 1.0)
+        # if horizon_dtype == torch.uint8
+        # else torch.clip(out, 0.0, 1.0)
     )
 
     return out

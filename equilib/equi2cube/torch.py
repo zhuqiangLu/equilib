@@ -90,6 +90,7 @@ def convert_grid(
     # convert to rotation
     phi = torch.asin(xyz[..., 2] / torch.norm(xyz, dim=-1))
     theta = torch.atan2(xyz[..., 1], xyz[..., 0])
+    
 
     if method == "robust":
         ui = (theta / (2 * pi) - 0.5) * w_equi - 0.5
@@ -234,8 +235,8 @@ def run(
 
     out = (
         out.type(equi_dtype)
-        if equi_dtype == torch.uint8
-        else torch.clip(out, 0.0, 1.0)
+        # if equi_dtype == torch.uint8
+        # else torch.clip(out, 0.0, 1.0)
     )
 
     # reformat the output

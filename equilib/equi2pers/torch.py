@@ -242,8 +242,8 @@ def run(
 
     out = (
         out.type(equi_dtype)
-        if equi_dtype == torch.uint8
-        else torch.clip(out, 0.0, 1.0)
+        # if equi_dtype == torch.uint8
+        # else torch.clip(out, 0.0, 1.0)
     )
 
     return out
